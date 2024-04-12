@@ -2,6 +2,9 @@
 #include <vector>
 #include <queue>
 #include <string>
+#include <algorithm>
+#include <random>
+#include <iterator>
 
 using namespace std;
 
@@ -14,9 +17,9 @@ struct Card {
 //controls the deck of cards, filling the deck, emptying the deck, shuffling, and getting top card
 class Cards {
 public:
-	queue<Card> fillDeck();
+	vector<Card> fillDeck();
 	string emptyDeck();
-	void shuffle(queue<Card> unshuffledDeck);
+	queue<Card> Shuffle(vector<Card> unshuffledDeck);
 	Card deal();
 	void GetCard();
 private:
