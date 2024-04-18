@@ -66,7 +66,7 @@ vector<Card> Cards::fillDeck() {
 					break;
 				}
 				else if (i == 12) {
-					card.number = "Q";
+					card.number = 'Q';
 					Deck.push_back(card);
 					break;
 				}

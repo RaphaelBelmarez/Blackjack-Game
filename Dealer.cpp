@@ -1,12 +1,14 @@
 #include "Dealer.h"
 
+void Dealer::check() {
+	int total;
+	for (int i = 0; i < hand.size(); i++) {
+		if (stoi(hand[i].number) == true)
+			total += stoi(hand[i].number);
+	}
+	if (total < 21) {
+		if ((total + stoi(Cards::deck.front().number))) {
 
-
-class Dealer:Player {
-public:
-	//will check to see its own hand and will run an algorithm to determine odds of busting if getting a new card, if odds aren't awful will hit.
-	void check();
-private:
-	//bot can check if it has hit 21, even with the hidden card from player
-	bool hasWon();
-};
+		}
+	}
+}

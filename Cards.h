@@ -20,10 +20,10 @@ public:
 	vector<Card> fillDeck();
 	string emptyDeck();
 	queue<Card> Shuffle(vector<Card> unshuffledDeck);
-	Card deal();
+	static Card deal();
 	void GetCard();
-private:
 	//will control through a queue, so that if cards get put back into deck, which they shouldn't, they'll be put at the end. Wanted to put a stack but didnt make sense
-	queue<Card> deck;
+	static queue<Card> deck;
+private:
 	int additionalCards;
 };
