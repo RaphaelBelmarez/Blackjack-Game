@@ -127,17 +127,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AdditionalCards.h" />
     <ClInclude Include="Cards.h" />
     <ClInclude Include="Dealer.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Screen.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AdditionalCards.cpp" />
     <ClCompile Include="Cards.cpp" />
     <ClCompile Include="Dealer.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Screen.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="SaveState.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

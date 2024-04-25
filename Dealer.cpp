@@ -7,8 +7,11 @@ void Dealer::check() {
 			total += stoi(hand[i].number);
 	}
 	if (total < 21) {
-		if ((total + stoi(Cards::deck.front().number))) {
-
+		if ((total + stoi(Cards::deck.front().number)) <= 21) {
+			hand.push_back(Cards::deal());
 		}
+	}
+	else {
+		stand();
 	}
 }
