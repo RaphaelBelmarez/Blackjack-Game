@@ -1,6 +1,7 @@
 #include "Cards.h"
 
-vector<Card> Cards::fillDeck() {
+
+vector<Card> CardsClass::fillDeck() {
 	vector<Card> Deck;
 	for (int x = 1; x <= 4; x++) {
 		char suit;
@@ -78,11 +79,11 @@ vector<Card> Cards::fillDeck() {
 			}
 		}
 	for (int j = 0; j < additionalCards; j++) {
-		return;
+		break;
 	}
 	return Deck;
 	}
-queue<Card> Cards::Shuffle(vector<Card> unshuffledDeck) {
+queue<Card> CardsClass::Shuffle(vector<Card> unshuffledDeck) {
 	random_device rd;
 	mt19937 g(rd());
 	shuffle(unshuffledDeck.begin(), unshuffledDeck.end(), g);
@@ -91,7 +92,7 @@ queue<Card> Cards::Shuffle(vector<Card> unshuffledDeck) {
 	}
 	return deck;
 }
-Card Cards::deal() {
+Card CardsClass::deal() {
 	Card tempcard = deck.front();
 	deck.pop();
 	return tempcard;

@@ -1,14 +1,14 @@
 #include "Dealer.h"
 
 void Dealer::check() {
-	int total;
+	float total = 0;
 	for (int i = 0; i < hand.size(); i++) {
 		if (stoi(hand[i].number) == true)
 			total += stoi(hand[i].number);
 	}
 	if (total < 21) {
-		if ((total + stoi(Cards::deck.front().number)) <= 21) {
-			hand.push_back(Cards::deal());
+		if ((total + stoi(CardsClass::deck.front().number)) <= 21) {
+			hand.push_back(CardsClass::deal());
 		}
 	}
 	else {

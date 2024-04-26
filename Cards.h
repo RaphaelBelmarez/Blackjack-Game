@@ -1,3 +1,7 @@
+#ifndef Cards_h
+#define Cards_h
+
+
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -15,7 +19,7 @@ struct Card {
 };
 
 //controls the deck of cards, filling the deck, emptying the deck, shuffling, and getting top card
-class Cards {
+class CardsClass {
 public:
 	vector<Card> fillDeck();
 	string emptyDeck();
@@ -27,3 +31,4 @@ public:
 private:
 	int additionalCards;
 };
+#endif // !Cards.h
