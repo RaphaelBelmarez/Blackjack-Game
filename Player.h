@@ -8,7 +8,7 @@
 
 using namespace std;
 
-class Player {
+class Player : public CardsClass {
 public:
 	vector<Card> hand;
 	void hit();

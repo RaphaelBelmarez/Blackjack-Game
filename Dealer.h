@@ -4,6 +4,7 @@
 #include "Cards.h"
 #include "Player.h"
 #include <iostream>
+#include <stack>
 
 
 class Dealer : public Player {
