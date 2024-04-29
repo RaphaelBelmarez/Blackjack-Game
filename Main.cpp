@@ -25,12 +25,18 @@ int main() {
 	if (screen.init() == 5) {
 		cards.addCard(5);
 	}
-	queue<Card> deck = cards.Shuffle(cards.fillDeck());
+	queue<Card> deck = cards.fillDeck();
+	Card cardas = deck.front();
+	cout << cardas.number << endl;
 	player.hit(cards.deal());
 	player.hit(cards.deal());
 	dealer.hit(cards.deal());
 	dealer.hit(cards.deal());
 	while (dealer.haswon() != true) {
+		if (deck.empty() == true) {
+			cout << "empty" << endl;
+		}
+		system("CLS");
 		float dealertotal = 0;
 		float playertotal = 0;
 		cout << "Your Hand: " << endl;
@@ -60,20 +66,26 @@ int main() {
 		card = cards.deal();
 		cout << card.number;
 		cout << card.suit;
+		for (int i = 0; i < dealer.hand.size(); i++) {
+			card = dealer.hand[i];
+			dealertotal += stoi(card.number);
+		}
+		for (int i = 0; i < player.hand.size(); i++) {
+			card = player.hand[i];
+			playertotal += stoi(card.number);
+		}
 		if (player.isStand() == true) {
-			for (int i = 0; i < dealer.hand.size(); i++) {
-				card = dealer.hand[i];
-				dealertotal += stoi(card.number);
-			}
-			for (int i = 0; i < player.hand.size(); i++) {
-				card = player.hand[i];
-				playertotal += stoi(card.number);
-			}
+			cout << "Your total is: " << playertotal << endl;
+			cout << "Dealer's total is: " << dealertotal << endl;
 			if (playertotal < dealertotal) {
 				cout << "Game Lost! Relaunch to play again." << endl;
 				dealer.win();
 				break;
 			}
+		}
+		if (playertotal > 21) {
+			cout << "You've busted! Relaunch to try again." << endl;
+			break;
 		}
 	}
 }

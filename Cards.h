@@ -15,17 +15,15 @@ using namespace std;
 //gives the card a number, or a k,q,j,or ace, which is why its a string, so we can transpose
 struct Card {
 	string number;
-	char suit = NULL;
+	char suit;
 };
 
 //controls the deck of cards, filling the deck, emptying the deck, shuffling, and getting top card
 class Cards{
 public:
-	vector<Card> fillDeck();
-	string emptyDeck();
+	queue<Card> fillDeck();
 	queue<Card> Shuffle(vector<Card> unshuffledDeck);
 	Card deal();
-	void GetCard();
 	void addCard(int card);
 	Card sub3();
 	Card sub5();

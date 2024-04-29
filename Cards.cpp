@@ -1,89 +1,92 @@
 #include "Cards.h"
 
 
-vector<Card> Cards::fillDeck() {
+queue<Card> Cards::fillDeck() {
 	vector<Card> Deck;
 	for (int x = 1; x <= 4; x++) {
-		string suit;
-		if (x == 1) { suit = 'D'; };
-		if (x == 2) { suit = 'C'; };
-		if (x == 3) { suit = 'H'; };
-		if (x == 4) { suit = 'S'; };
+		char suits;
+		if (x == 1) { suits = 'D'; };
+		if (x == 2) { suits = 'C'; };
+		if (x == 3) { suits = 'H'; };
+		if (x == 4) { suits = 'S'; };
 		Card card;
 			for (int i = 1; i <= 13; i++) {
+				card.suit = suits;
 				if (i == 1) {
-					card.number = "A";
+					card.number = "1";
 					Deck.push_back(card);
-					break;
 				}
 				else if (i == 2) {
 					card.number = "2";
 					Deck.push_back(card);
-					break;
 				}
 				else if (i == 3) {
 					card.number = "3";
 					Deck.push_back(card);
-					break;
 				}
 				else if (i == 4) {
 					card.number = "4";
 					Deck.push_back(card);
-					break;
 				}
 				else if (i == 5) {
 					card.number = "5";
 					Deck.push_back(card);
-					break;
 				}
 				else if (i == 6) {
 					card.number = "6";
 					Deck.push_back(card);
-					break;
 				}
 				else if (i == 7) {
 					card.number = "7";
 					Deck.push_back(card);
-					break;
 				}
 				else if (i == 8) {
 					card.number = "8";
 					Deck.push_back(card);
-					break;
 				}
 				else if (i == 9) {
 					card.number = "9";
 					Deck.push_back(card);
-					break;
 				}
 				else if (i == 10) {
 					card.number = "10";
 					Deck.push_back(card);
-					break;
 				}
 				else if (i == 11) {
-					card.number = "J";
+					card.number = "11";
 					Deck.push_back(card);
-					break;
 				}
 				else if (i == 12) {
-					card.number = 'Q';
+					card.number = '12';
 					Deck.push_back(card);
-					break;
 				}
 				else if (i == 13) {
-					card.number = "K";
+					card.number = "13";
 					Deck.push_back(card);
-					break;
 				}
 			}
 		}
-	for (int j = 0; j < additionalCards; j++) {
+	for (int j = 0; j <= additionalCards; j++) {
+
 		break;
 	}
-	return Deck;
+	for (int i = 0; i < Deck.size(); i++) {
+		Card card = Deck[i];
+		cout << card.number;
+	}
+	random_device rd;
+	mt19937 g(rd());
+	shuffle(Deck.begin(), Deck.end(), g);
+	for (int i = 0; i < Deck.size(); i++) {
+		deck.push(Deck[i]);
+	}
+	return deck;
 	}
 queue<Card> Cards::Shuffle(vector<Card> unshuffledDeck) {
+	for (int i = 0; i < unshuffledDeck.size(); i++) {
+		Card card = unshuffledDeck[i];
+		cout << card.number;
+	}
 	random_device rd;
 	mt19937 g(rd());
 	shuffle(unshuffledDeck.begin(), unshuffledDeck.end(), g);
@@ -93,11 +96,9 @@ queue<Card> Cards::Shuffle(vector<Card> unshuffledDeck) {
 	return deck;
 }
 Card Cards::deal() {
-	if (deck.front() != NULL) {
-		Card tempcard = deck.front();
-		deck.pop();
-		return tempcard;
-	}
+	Card tempcard = deck.front();
+	deck.pop();
+	return tempcard;
 }
 void Cards::addCard(int card) {
 	additionalCards += 1;
