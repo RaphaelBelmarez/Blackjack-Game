@@ -9,7 +9,6 @@
 #include <algorithm>
 #include <random>
 #include <iterator>
-#include "AdditionalCards.h"
 
 using namespace std;
 
@@ -20,7 +19,7 @@ struct Card {
 };
 
 //controls the deck of cards, filling the deck, emptying the deck, shuffling, and getting top card
-class Cards : public AdditionalCards{
+class Cards{
 public:
 	vector<Card> fillDeck();
 	string emptyDeck();
@@ -28,6 +27,11 @@ public:
 	Card deal();
 	void GetCard();
 	void addCard(int card);
+	Card sub3();
+	Card sub5();
+	Card get21();
+	Card delHand();
+	Card reveal();
 	//will control through a queue, so that if cards get put back into deck, which they shouldn't, they'll be put at the end. Wanted to put a stack but didnt make sense
 	queue<Card> deck;
 private:

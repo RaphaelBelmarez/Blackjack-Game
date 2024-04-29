@@ -32,3 +32,9 @@ int Screen::init() {
 	}
 	return 0;
 }
+char Screen::play() {
+	string answer;
+	cout << "Would you like to hit or stand?" << endl;
+	cin >> answer;
+	return answer[0];
+}

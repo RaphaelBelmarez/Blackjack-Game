@@ -4,7 +4,7 @@
 vector<Card> Cards::fillDeck() {
 	vector<Card> Deck;
 	for (int x = 1; x <= 4; x++) {
-		char suit;
+		string suit;
 		if (x == 1) { suit = 'D'; };
 		if (x == 2) { suit = 'C'; };
 		if (x == 3) { suit = 'H'; };
@@ -93,9 +93,11 @@ queue<Card> Cards::Shuffle(vector<Card> unshuffledDeck) {
 	return deck;
 }
 Card Cards::deal() {
-	Card tempcard = deck.front();
-	deck.pop();
-	return tempcard;
+	if (deck.front() != NULL) {
+		Card tempcard = deck.front();
+		deck.pop();
+		return tempcard;
+	}
 }
 void Cards::addCard(int card) {
 	additionalCards += 1;
@@ -114,4 +116,34 @@ void Cards::addCard(int card) {
 	if (card == 5) {
 		deck.push(reveal());
 	}
+}
+Card Cards::sub3() {
+	Card card;
+	card.number = "-3";
+	card.suit = 'N';
+	return card;
+}
+Card Cards::sub5() {
+	Card card;
+	card.number = "-5";
+	card.suit = 'N';
+	return card;
+}
+Card Cards::get21() {
+	Card card;
+	card.number = "21";
+	card.suit = 'N';
+	return card;
+}
+Card Cards::delHand() {
+	Card card;
+	card.number = "-";
+	card.suit = 'N';
+	return card;
+}
+Card Cards::reveal() {
+	Card card;
+	card.number = "_";
+	card.suit = 'N';
+	return card;
 }

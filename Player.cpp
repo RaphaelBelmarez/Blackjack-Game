@@ -1,7 +1,7 @@
 #include "Player.h"
 
-void Player::hit() {
-	hand.push_back(deal());
+void Player::hit(Card card) {
+	hand.push_back(card);
 }
 void Player::stand() {
 	standStatus = true;

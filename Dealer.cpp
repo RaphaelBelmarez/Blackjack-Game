@@ -15,3 +15,10 @@ void Dealer::check() {
 		stand();
 	}
 }
+void Dealer::win() {
+	hasWon = true;
+}
+bool Dealer::haswon() {
+	bool wincon = hasWon;
+	return wincon;
+}

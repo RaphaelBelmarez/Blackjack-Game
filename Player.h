@@ -11,7 +11,7 @@ using namespace std;
 class Player : public Cards {
 public:
 	vector<Card> hand;
-	void hit();
+	void hit(Card card);
 	void stand();
 	bool isStand();
 private:
