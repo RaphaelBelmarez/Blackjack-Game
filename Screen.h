@@ -5,7 +5,8 @@
 class Screen
 {
 public:
-	void init();
+	//very rudimentary save state system, more of a work in progress while i research, would like to be able to resume play exactly where you left off.
+	int init();
 private:
 	int saveState;
 };

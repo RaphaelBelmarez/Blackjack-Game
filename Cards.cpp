@@ -1,14 +1,14 @@
 #include "Cards.h"
 
 
-vector<Card> CardsClass::fillDeck() {
+vector<Card> Cards::fillDeck() {
 	vector<Card> Deck;
 	for (int x = 1; x <= 4; x++) {
 		char suit;
-		if (x == 1) { suit == 'D'; };
-		if (x == 2) { suit == 'C'; };
-		if (x == 3) { suit == 'H'; };
-		if (x == 4) { suit == 'S'; };
+		if (x == 1) { suit = 'D'; };
+		if (x == 2) { suit = 'C'; };
+		if (x == 3) { suit = 'H'; };
+		if (x == 4) { suit = 'S'; };
 		Card card;
 			for (int i = 1; i <= 13; i++) {
 				if (i == 1) {
@@ -83,7 +83,7 @@ vector<Card> CardsClass::fillDeck() {
 	}
 	return Deck;
 	}
-queue<Card> CardsClass::Shuffle(vector<Card> unshuffledDeck) {
+queue<Card> Cards::Shuffle(vector<Card> unshuffledDeck) {
 	random_device rd;
 	mt19937 g(rd());
 	shuffle(unshuffledDeck.begin(), unshuffledDeck.end(), g);
@@ -92,8 +92,26 @@ queue<Card> CardsClass::Shuffle(vector<Card> unshuffledDeck) {
 	}
 	return deck;
 }
-Card CardsClass::deal() {
+Card Cards::deal() {
 	Card tempcard = deck.front();
 	deck.pop();
 	return tempcard;
+}
+void Cards::addCard(int card) {
+	additionalCards += 1;
+	if (card == 1) {
+		deck.push(sub3());
+	}
+	if (card == 2) {
+		deck.push(sub5());
+	}
+	if (card == 3) {
+		deck.push(get21());
+	}
+	if (card == 4) {
+		deck.push(delHand());
+	}
+	if (card == 5) {
+		deck.push(reveal());
+	}
 }

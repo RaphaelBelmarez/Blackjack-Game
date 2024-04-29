@@ -3,8 +3,12 @@
 
 using namespace std;
 
-void Screen::init() {
-	//dont quite believe I'll be able to check and make a savestate right now, I'd be able to later.
+int Screen::init() {
+	cout << "Welcome to Blackjack" << endl;
+	Sleep(10);
+	system("PAUSE");
+	system("CLS");
+	//dont quite believe I'll be able to check and make a savestate right now, I'd be able to later
 	string line;
 	fstream myFile("SaveState.txt");
 	while (getline(myFile, line)) {
@@ -12,11 +16,19 @@ void Screen::init() {
 	}
 	myFile.close();
 	if (stoi(line) == 0) {
-
+		return 1;
 	}
-	cout << "Welcome to Blackjack" << endl;
-	Sleep(10);
-	system("PAUSE");
-	system("CLS");
-	cout << "You understand theres no going back now." << endl;
+	if (stoi(line) == 1) {
+		return 2;
+	}
+	if (stoi(line) == 2) {
+		return 3;
+	}
+	if (stoi(line) == 3) {
+		return 4;
+	}
+	if (stoi(line) == 4) {
+		return 5;
+	}
+	return 0;
 }
