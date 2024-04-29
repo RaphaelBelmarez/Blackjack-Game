@@ -1,18 +1,19 @@
 #include "Dealer.h"
 
-void Dealer::check() {
+bool Dealer::check(queue<Card> decks) {
 	float total = 0;
 	for (int i = 0; i < hand.size(); i++) {
-		if (stoi(hand[i].number) == true)
-			total += stoi(hand[i].number);
+		Card cards = hand[i];
+		total += stoi(cards.number);
 	}
+	Card card = decks.front();
 	if (total < 21) {
-		if ((total + stoi(deck.front().number)) <= 21) {
-			hand.push_back(deal());
+		if ((total + stoi(card.number)) <= 21) {
+			return true;
 		}
 	}
 	else {
-		stand();
+		return false;
 	}
 }
 void Dealer::win() {

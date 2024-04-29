@@ -57,7 +57,7 @@ queue<Card> Cards::fillDeck() {
 					Deck.push_back(card);
 				}
 				else if (i == 12) {
-					card.number = '12';
+					card.number = "12";
 					Deck.push_back(card);
 				}
 				else if (i == 13) {
@@ -70,16 +70,18 @@ queue<Card> Cards::fillDeck() {
 
 		break;
 	}
-	for (int i = 0; i < Deck.size(); i++) {
-		Card card = Deck[i];
-		cout << card.number;
-	}
 	random_device rd;
 	mt19937 g(rd());
 	shuffle(Deck.begin(), Deck.end(), g);
 	for (int i = 0; i < Deck.size(); i++) {
 		deck.push(Deck[i]);
+		//Card card = deck.front();
+		//deck.pop();
+		//cout << card.number;
+		//cout << card.suit;
+		//cout << "  ";
 	}
+	//system("PAUSE");
 	return deck;
 	}
 queue<Card> Cards::Shuffle(vector<Card> unshuffledDeck) {

@@ -33,12 +33,13 @@ int main() {
 	dealer.hit(cards.deal());
 	dealer.hit(cards.deal());
 	while (dealer.haswon() != true) {
+		float dealertotal = 0;
+		float playertotal = 0;
+		
 		if (deck.empty() == true) {
 			cout << "empty" << endl;
 		}
 		system("CLS");
-		float dealertotal = 0;
-		float playertotal = 0;
 		cout << "Your Hand: " << endl;
 		for (int i = 0; i < player.hand.size(); i++) {
 			card = player.hand[i];
@@ -53,8 +54,8 @@ int main() {
 			cout << card.number;
 			cout << "  " << endl;
 		}
-		char playstat = screen.play();
 		if (player.isStand() == false) {
+			char playstat = screen.play();
 			if (playstat == 'h') {
 				player.hand.push_back(cards.deal());
 				
@@ -63,9 +64,9 @@ int main() {
 				player.stand();
 			}
 		}
-		card = cards.deal();
-		cout << card.number;
-		cout << card.suit;
+		//if (deck.empty() == true) {
+			//cout << "empty" << endl;
+		//}
 		for (int i = 0; i < dealer.hand.size(); i++) {
 			card = dealer.hand[i];
 			dealertotal += stoi(card.number);
@@ -75,8 +76,30 @@ int main() {
 			playertotal += stoi(card.number);
 		}
 		if (player.isStand() == true) {
+			if (dealer.check(deck) == true) {
+				dealer.hit(cards.deal());
+			}
 			cout << "Your total is: " << playertotal << endl;
 			cout << "Dealer's total is: " << dealertotal << endl;
+			if (dealertotal > 21) {
+				system("CLS");
+				cout << "Your Hand: " << endl;
+				for (int i = 0; i < player.hand.size(); i++) {
+					card = player.hand[i];
+					cout << card.suit;
+					cout << card.number;
+					cout << "  " << endl;
+				}
+				cout << "Dealer's Hand: " << endl;
+				for (int i = 0; i < dealer.hand.size(); i++) {
+					card = dealer.hand[i];
+					cout << card.suit;
+					cout << card.number;
+					cout << "  " << endl;
+				}
+				cout << "Dealer busted! You win! Relaunch to try again." << endl;
+				break;
+			}
 			if (playertotal < dealertotal) {
 				cout << "Game Lost! Relaunch to play again." << endl;
 				dealer.win();
@@ -84,6 +107,21 @@ int main() {
 			}
 		}
 		if (playertotal > 21) {
+			system("CLS");
+			cout << "Your Hand: " << endl; 
+			for (int i = 0; i < player.hand.size(); i++) {
+				card = player.hand[i];
+				cout << card.suit;
+				cout << card.number;
+				cout << "  " << endl;
+			}
+			cout << "Dealer's Hand: " << endl;
+			for (int i = 0; i < dealer.hand.size(); i++) {
+				card = dealer.hand[i];
+				cout << card.suit;
+				cout << card.number;
+				cout << "  " << endl;
+			}
 			cout << "You've busted! Relaunch to try again." << endl;
 			break;
 		}

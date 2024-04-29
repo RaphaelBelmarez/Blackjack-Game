@@ -15,19 +15,19 @@ int Screen::init() {
 		saveState = stoi(line);
 	}
 	myFile.close();
-	if (stoi(line) == 0) {
+	if (stoi(line) == 1) {
 		return 1;
 	}
-	if (stoi(line) == 1) {
+	if (stoi(line) == 2) {
 		return 2;
 	}
-	if (stoi(line) == 2) {
+	if (stoi(line) == 3) {
 		return 3;
 	}
-	if (stoi(line) == 3) {
+	if (stoi(line) == 4) {
 		return 4;
 	}
-	if (stoi(line) == 4) {
+	if (stoi(line) == 5) {
 		return 5;
 	}
 	return 0;
