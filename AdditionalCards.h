@@ -11,7 +11,11 @@ using namespace std;
 
 class AdditionalCards {
 public:
-	
+	Card sub3();
+	Card sub5();
+	Card get21();
+	Card delHand();
+	Card reveal();
 private:
 
 };
