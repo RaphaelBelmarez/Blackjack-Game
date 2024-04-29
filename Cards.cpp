@@ -84,6 +84,7 @@ queue<Card> Cards::fillDeck() {
 	//system("PAUSE");
 	return deck;
 	}
+//now unused
 queue<Card> Cards::Shuffle(vector<Card> unshuffledDeck) {
 	for (int i = 0; i < unshuffledDeck.size(); i++) {
 		Card card = unshuffledDeck[i];

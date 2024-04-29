@@ -26,8 +26,6 @@ int main() {
 		cards.addCard(5);
 	}
 	queue<Card> deck = cards.fillDeck();
-	Card cardas = deck.front();
-	cout << cardas.number << endl;
 	player.hit(cards.deal());
 	player.hit(cards.deal());
 	dealer.hit(cards.deal());
@@ -48,7 +46,8 @@ int main() {
 			cout << "  " << endl;
 		}
 		cout << "Dealer's Hand: " << endl;
-		for (int i = 0; i < dealer.hand.size(); i++) {
+		cout << "???  ";
+		for (int i = 1; i < dealer.hand.size(); i++) {
 			card = dealer.hand[i];
 			cout << card.suit;
 			cout << card.number;

@@ -10,6 +10,7 @@ using namespace std;
 
 class Player : public Cards {
 public:
+	//hand of cards
 	vector<Card> hand;
 	void hit(Card card);
 	void stand();
